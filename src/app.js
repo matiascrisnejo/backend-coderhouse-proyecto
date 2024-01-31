@@ -1,16 +1,17 @@
 import express from 'express';
-import { ProductManager } from './ProductManager.js';
-import { CartManager } from './CartManager.js';
-import routerCarts from '../routes/carts.router.js';
-import routerProducts from '../routes/products.router.js'
+import  ProductManager  from '../src2/src/managers/ProductManager.js';
+import  CartManager  from '../src2/src/managers/CartManager.js';
+import routerCarts from '../src2/routes/carts.router.js';
+import routerProducts from '../src2/routes/products.router.js';
 
 const app = express();
 const port = 8080;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const pathProducts = './data/products.json';
+
 const pathCarts = './data/carts.json';
 
 export const productManager = new ProductManager(pathProducts);
@@ -20,4 +21,4 @@ app.use('/api/products', routerProducts);
 app.use("/api/carts", routerCarts);
 
 
-app.listen(port, () => console.log("servidor con express"));
+app.listen(8080, () => console.log("servidor con express"));
