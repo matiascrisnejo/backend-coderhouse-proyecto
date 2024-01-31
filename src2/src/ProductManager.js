@@ -3,12 +3,12 @@ import fs from "fs"
 export class ProductManager {
     constructor () {
     this.products = [];
-    this.path = "./data/products.json"
+    this.path = "../src/data/products.json"
     };
 
     getProducts(){
         try {
-            const data = fs.readFileSync("./data/products.json", "utf8");
+            const data = fs.readFileSync("../src/data/products.json", "utf8");
             this.products = JSON.parse(data);
             return this.products;              
         }
